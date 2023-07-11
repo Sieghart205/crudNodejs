@@ -1,0 +1,51 @@
+<%- include("partials/_header.ejs")%>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-7">
+            <table class="table table-bordered table-hover">
+                <table class="table table-dark">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>TareaID</th>
+                            <th>Tarea</th>
+                            <th>Descripcion</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach((e) => { %>
+                            <tr>
+                                <td><%= e.TareaID %></td>
+                                <td><%= e.Tarea %></td>
+                                <td><%= e.Descripcion %></td>
+                                <td>
+                                    <a href="/delete/<%= e.TareaID %>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/update/<%= e.TareaID %>" class="btn btn-success">Actualizar</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+        </div>
+        <div class="col-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <input type="text" name="Tarea" placeholder="Tarea" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Descripcion" placeholder="Descripcion" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="Guardar Tarea">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/_footer.ejs")%>

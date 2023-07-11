@@ -1,0 +1,20 @@
+<%- include ("partials/_header.ejs") %>
+<div class="row col-5 mt-5">
+    <div class="card">
+        <div class="card-body">
+            <form action="/update/<%= data[0].TareaID %>" method="post">
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" autocomplete="off" value="<%= data[0].Tarea%>" name="Tarea">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" autocomplete="off" value="<%= data[0].Descripcion%>" name="Descripcion">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include ("partials/_footer.ejs") %>
